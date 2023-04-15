@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text&display=swap');
+*{
+    font-family: 'Golos Text', sans-serif;
+}
+h1{
+    color: rgb(232, 213, 44);
+    text-align: center;
+    text-shadow: 0 0 5rem rgba(0, 0, 0, 0.204);
+}
