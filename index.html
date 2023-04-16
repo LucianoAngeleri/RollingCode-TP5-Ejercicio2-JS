@@ -115,12 +115,12 @@
           </div>
         </div>
       </section>
-      <section class="container d-flex gap-3 py-4">
-        <button type="button" class="btn btn-success rounded-4">Crear una nueva Persona</button>
-        <button type="button" class="btn btn-outline-warning rounded-4">Mostrar generación de la Persona</button>
-        <button type="button" class="btn btn-outline-warning rounded-4">Mostrar datos de la Persona</button>
+      <section class="container d-flex justify-content-center gap-3 py-4">
+        <button type="button" class="btn btn-success rounded-4" id="btnCrear">Crear una nueva Persona</button>
+        <button type="button" class="btn btn-outline-warning rounded-4 d-none" id="btnGeneracion">Mostrar generación de la Persona</button>
+        <button type="button" class="btn btn-outline-warning rounded-4 d-none" id="btnDatos">Mostrar datos de la Persona</button>
       </section>
-      <section class="container">
+      <section class="container d-none" id="contenedorCreacion">
         <div class="d-flex flex-column py-3">
           <h3 class="display-6 fw-bold mb-3">Crea una persona completando los datos:</h3>
            <form class="d-flex flex-column gap-2">
