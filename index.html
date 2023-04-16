@@ -115,49 +115,49 @@
           </div>
         </div>
       </section>
-      <section class="container mt-4">
+      <section class="container d-flex gap-3 py-4">
+        <button type="button" class="btn btn-success rounded-4">Crear una nueva Persona</button>
+        <button type="button" class="btn btn-outline-warning rounded-4">Mostrar generación de la Persona</button>
+        <button type="button" class="btn btn-outline-warning rounded-4">Mostrar datos de la Persona</button>
+      </section>
+      <section class="container">
         <div class="d-flex flex-column py-3">
           <h3 class="display-6 fw-bold mb-3">Crea una persona completando los datos:</h3>
-           <form class="d-flex flex-column gap-3">
-              <div class="mb-3">
+           <form class="d-flex flex-column gap-2">
+              <div class="mb-1">
                 <label for="inputNombre" class="form-label fs-6">Ingrese el Nombre:</label>
                 <input class="form-control fs-6" type="text" id="inputNombre" placeholder="Nombre" required maxlength="100" minlength="2"/>
               </div>
-              <div class="mb-3">
+              <div class="mb-1">
                 <label for="inputEdad" class="form-label fs-6">Ingrese la Edad:</label>
                 <input class="form-control fs-6" type="number" id="inputEdad" placeholder="Edad" required maxlength="3" minlength="1" min="1" max="200"/>
               </div>
-              <div class="mb-3">
+              <div class="mb-1">
                 <label for="inputDNI" class="form-label fs-6">Ingrese el DNI:</label>
                 <input class="form-control fs-6" type="number" id="inputDNI" placeholder="Ej. 39141056" required maxlength="8" minlength="8"/>
               </div>
-              <fieldset class="row mb-3">
-                <legend class="col-form-label col-sm-2 pt-0">Sexo:</legend>
-                <div class="col-10">
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="selectorSexo" id="selectorHombre" value="H">
-                    <label class="form-check-label" for="selectorHombre">Hombre (H)</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="selectorSexo" id="selectorMujer" value="M">
-                    <label class="form-check-label" for="selectorMujer">Mujer (M)</label>
-                  </div>
-                </div>
-              </fieldset>
-              <div class="mb-3">
+              <div class="mb-1">
+                <label for="inputSexo" class="form-label">Sexo:</label>
+                <select class="form-select" id="inputSexo" required>
+                  <option value="" disabled selected>Selecciona una opción...</option>
+                  <option value="H">Hombre</option>
+                  <option value="M">Mujer</option>
+                </select>
+              </div>
+              <div class="mb-1">
                 <label for="inputPeso" class="form-label fs-6">Ingrese el Peso (en kg):</label>
                 <input class="form-control fs-6" type="number" id="inputPeso" placeholder="Ej. 85 (kg)" required maxlength="3" minlength="2"/>
               </div>
-              <div class="mb-3">
+              <div class="mb-1">
                 <label for="inputAltura" class="form-label fs-6">Ingrese la Altura (en cm):</label>
                 <input class="form-control fs-6" type="number" id="inputAltura" placeholder="Ej. 184 (cm)" required maxlength="3" minlength="2"/>
               </div>
-              <div class="mb-3">
+              <div class="mb-1">
                 <label for="inputNac" class="form-label fs-6">Ingrese la fecha de Nacimiento:</label>
                 <input class="form-control fs-6" type="date" id="inputNac" required/>
               </div>
               <button class="btn btn-primary btn-lg rounded-pill px-5 fs-2" type="submit">Crear persona</button>
-           </form>
+            </form>
         </div>
       </section>
     </main>
