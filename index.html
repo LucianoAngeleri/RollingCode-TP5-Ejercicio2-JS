@@ -25,7 +25,7 @@
           <a class="navbar-brand py-2" href="./index.html"><i class="bi bi-code-slash fs-1 p-3"></i>TP N°5 - Ejercicio 2</a>
         </div>
       </nav>
-      <h1 class="display-1 my-3 text-warning text-center">Números Mágicos</h1>
+      <h1 class="display-1 my-3 text-warning text-center">Generaciones</h1>
     </header>
     <main>
       <section class="container">
@@ -44,49 +44,120 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#acordionEnunciado">
               <div class="accordion-body border border-warning rounded rounded-5">
-                <p class="lead">
-                  Crea una web con bootstrap y js, que contenga un botón comenzar el juego, en ese momento se crea un
-                  número aleatorio que el usuario deberá adivinar, la interfaz del usuario debe tener además un input
-                  para ingresar un número y un botón enviar, al presionar el botón enviar mostrar en un alert si el
-                  usuario adivino o no el número mágico, si no lo adivino indicarle con un alert si el numero que
-                  ingreso es mayor o menor al número mágico.Cuando el usuario adivine el numero mostrar un mensaje
-                  indicando al usuario que adivino el numero.
-                </p>
+                  <p class="fs-5">Crea una clase llamada <strong>Persona</strong> que siga las siguientes condiciones:
+                  <p class="fs-5">Sus propiedades son:</p>
+                    <ul class="list-group fs-6">
+                      <li class="list-group-item list-group-item-dark">Nombre</li>  
+                      <li class="list-group-item list-group-item-dark">Edad</li> 
+                      <li class="list-group-item list-group-item-dark">DNI</li> 
+                      <li class="list-group-item list-group-item-dark">Sexo (H hombre, M mujer) </li> 
+                      <li class="list-group-item list-group-item-dark">Peso</li> 
+                      <li class="list-group-item list-group-item-dark">Altura</li> 
+                      <li class="list-group-item list-group-item-dark">Año de nacimiento</li> 
+                    </ul> 
+                    <p class="fs-5">Si quieres añadir alguna propiedad extra puedes hacerlo.</p>
+                    <p class="fs-5">Los métodos que se debe poder utilizar son:</p>
+                    <ul class="list-group">
+                      <li class="list-group-item list-group-item-dark"><strong>mostrarGeneracion:</strong> este método debe mostrar un mensaje indicando a qué generación pertenece la persona creada y cual es el rasgo característico de esta generación.Para realizar este método tener en cuenta la siguiente tabla de generaciones:
+                        <table class="table table-responsive">
+                          <thead>
+                            <th>Nombre de la Generación</th>
+                            <th>Marco Temporal</th>
+                            <th>Porblación de la Generaciones</th>
+                            <th>Circunstancia histórica</th>
+                            <th>Rasgo característico</th>
+                          </thead>
+                          <tbody>
+                            <tr class="table-danger">
+                              <td>Generación Z</td>
+                              <td>1994-2010</td>
+                              <td>7.800.000</td>
+                              <td>Expansion masiva de internet</td>
+                              <td>Irreverencia</td>
+                            </tr>
+                            <tr class="table-info">
+                              <td>Generación Y</td>
+                              <td>1981-1993</td>
+                              <td>7.200.000</td>
+                              <td>Inicio de la digiliación</td>
+                              <td>Frustación</td>
+                            </tr>
+                            <tr class="table-warning">
+                              <td>Generación X</td>
+                              <td>1969-1980</td>
+                              <td>9.300.000</td>
+                              <td>Crisis del 73 y transición española</td>
+                              <td>Obsesión por el éxito</td>
+                            </tr>
+                            <tr class="table-success">
+                              <td>Baby Boom</td>
+                              <td>1949-1968</td>
+                              <td>12.200.000</td>
+                              <td>Paz y explosión demográfica</td>
+                              <td>Ambición</td>
+                            </tr>
+                            <tr class="table-primary">
+                              <td>Silent Generation</td>
+                              <td>1930-1948</td>
+                              <td>6.300.000</td>
+                              <td>Conflictos Bélicos</td>
+                              <td>Austeridad</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </li>  
+                      <li class="list-group-item list-group-item-dark"><strong>esMayorDeEdad:</strong> indica si es mayor de edad, devuelve un mensaje indicando que la persona es mayor de edad.</li> 
+                      <li class="list-group-item list-group-item-dark"><strong>mostrarDatos:</strong> devuelve toda la información del objeto.</li>
+                    </ul>
+                    <p class="fs-5">Luego crea la interfaz necesaria para que el usuario pueda crear un objeto persona, permitiendo ingresar las propiedades mediante un formulario, también agregar los botones “mostrar generación”, es “mayor de edad” e indicar en un alert el resultado de la función correspondiente.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="container px-md-5 mt-4">
-        <div class="text-center d-flex flex-column py-3">
-          <p class="text-center fs-1 fw-bold mb-3">Adivina el Número</p>
-          <div class="d-none" id="contenedorJuego">
-            <div class="d-none px-md-5" id="contenedorAlertResultado">
-              <div class="alert alert-success" role="alert" id="alertResultado"></div>
-            </div>
-            <form class="text-center d-flex flex-column gap-3">
-              <div class="input-group">
-                <input
-                  class="form-control py-3 fs-6"
-                  type="number"
-                  id="inputNumero"
-                  placeholder="Ingresa un número"
-                  required
-                  maxlength="2"
-                  minlength="1"
-                  min="1"
-                  max="10" />
-                <div class="input-group-text fs-6">1 a 10</div>
+      <section class="container mt-4">
+        <div class="d-flex flex-column py-3">
+          <h3 class="display-6 fw-bold mb-3">Crea una persona completando los datos:</h3>
+           <form class="d-flex flex-column gap-3">
+              <div class="mb-3">
+                <label for="inputNombre" class="form-label fs-6">Ingrese el Nombre:</label>
+                <input class="form-control fs-6" type="text" id="inputNombre" placeholder="Nombre" required maxlength="100" minlength="2"/>
               </div>
-              <button class="btn btn-primary btn-lg rounded-pill px-5 fs-2" type="submit">Enviar</button>
+              <div class="mb-3">
+                <label for="inputEdad" class="form-label fs-6">Ingrese la Edad:</label>
+                <input class="form-control fs-6" type="number" id="inputEdad" placeholder="Edad" required maxlength="3" minlength="1" min="1" max="200"/>
+              </div>
+              <div class="mb-3">
+                <label for="inputDNI" class="form-label fs-6">Ingrese el DNI:</label>
+                <input class="form-control fs-6" type="number" id="inputDNI" placeholder="Ej. 39141056" required maxlength="8" minlength="8"/>
+              </div>
+              <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Sexo:</legend>
+                <div class="col-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="selectorSexo" id="selectorHombre" value="H">
+                    <label class="form-check-label" for="selectorHombre">Hombre (H)</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="selectorSexo" id="selectorMujer" value="M">
+                    <label class="form-check-label" for="selectorMujer">Mujer (M)</label>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="mb-3">
+                <label for="inputPeso" class="form-label fs-6">Ingrese el Peso (en kg):</label>
+                <input class="form-control fs-6" type="number" id="inputPeso" placeholder="Ej. 85 (kg)" required maxlength="3" minlength="2"/>
+              </div>
+              <div class="mb-3">
+                <label for="inputAltura" class="form-label fs-6">Ingrese la Altura (en cm):</label>
+                <input class="form-control fs-6" type="number" id="inputAltura" placeholder="Ej. 184 (cm)" required maxlength="3" minlength="2"/>
+              </div>
+              <div class="mb-3">
+                <label for="inputNac" class="form-label fs-6">Ingrese la fecha de Nacimiento:</label>
+                <input class="form-control fs-6" type="date" id="inputNac" required/>
+              </div>
+              <button class="btn btn-primary btn-lg rounded-pill px-5 fs-2" type="submit">Crear persona</button>
             </form>
-          </div>
-          <button
-            class="btn btn-success btn-lg rounded-pill p-4 w-auto align-self-center fs-3"
-            type="button"
-            id="btnInicio">
-            Comenzar Juego
-          </button>
         </div>
       </section>
     </main>
