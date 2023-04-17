@@ -45,15 +45,27 @@ function enviarForm(e) {
 function mostrarGeneracion() {
     const alertaGeneracion = document.getElementById('alertaGeneracion')
     if(alertaGeneracion.innerHTML==""){
-    const contenedorAlerta = document.createElement('div')
-    contenedorAlerta.classList.add("alert","alert-success","alert-dismissible")
-    contenedorAlerta.setAttribute("role","alert")
-    contenedorAlerta.innerHTML = `<div>${persona.mostrarGeneracion()}</div>
+    const contenedorAlertaGen = document.createElement('div')
+    contenedorAlertaGen.classList.add("alert","alert-warning","alert-dismissible")
+    contenedorAlertaGen.setAttribute("role","alert")
+    contenedorAlertaGen.innerHTML = `<div>${persona.mostrarGeneracion()}</div>
     <button tipo="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`
-    alertaGeneracion.append(contenedorAlerta)
+    alertaGeneracion.append(contenedorAlertaGen)
     }
 }
 function mostrarMayorEdad() {
+    const alertaMayorEdad = document.getElementById('alertaMayorEdad')
+    console.log(alertaMayorEdad)
+    console.log(alertaMayorEdad.innerHTML)
+    console.log(alertaMayorEdad.innerHTML=="")
+    if(alertaMayorEdad.innerHTML==""){
+    const contenedorAlertaMayor = document.createElement('div')
+    contenedorAlertaMayor.classList.add("alert","alert-warning","alert-dismissible")
+    contenedorAlertaMayor.setAttribute("role","alert")
+    contenedorAlertaMayor.innerHTML = `<div>${persona.esMayorDeEdad()}</div>
+    <button tipo="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`
+    alertaMayorEdad.append(contenedorAlertaMayor)
+    }
 
 }
 //Clase Persona
