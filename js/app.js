@@ -1,10 +1,15 @@
 let btnCrear = document.getElementById("btnCrear")
+let btnModificar = document.getElementById("btnModificar")
 let btnGeneracion = document.getElementById("btnGeneracion")
 let btnMayor = document.getElementById("btnMayor")
 let contenedorCreacion = document.getElementById("contenedorCreacion")
+let contenedorDatos = document.getElementById("contenedorDatos")
 let formCreacion = document.querySelector("form")
+let alertaGeneracion = document.getElementById('alertaGeneracion')
+let alertaMayorEdad = document.getElementById('alertaMayorEdad')
 
 btnCrear.addEventListener("click", mostrarFormCreacion)
+btnModificar.addEventListener("click", mostrarFormCreacion)
 btnGeneracion.addEventListener("click", mostrarGeneracion)
 btnMayor.addEventListener("click", mostrarMayorEdad)
 formCreacion.addEventListener("submit", enviarForm)
@@ -13,17 +18,19 @@ let persona;
 
 function mostrarFormCreacion() {
     contenedorCreacion.classList.remove("d-none")
+    contenedorDatos.classList.add("d-none")
     btnCrear.classList.add("d-none")
+    btnModificar.classList.add("d-none")
     btnMayor.classList.add("d-none")
     btnGeneracion.classList.add("d-none")
+    removerAnterior();
 }
 function enviarForm(e) {
     e.preventDefault();
     btnGeneracion.classList.remove("d-none")
     btnMayor.classList.remove("d-none")
+    btnModificar.classList.remove("d-none")
 
-    let contenedorDatos = document.getElementById("contenedorDatos")
-    
     let nombre = document.getElementById("inputNombre").value
     let edad = document.getElementById("inputEdad").value
     let dni = document.getElementById("inputDNI").value
@@ -32,8 +39,17 @@ function enviarForm(e) {
     let altura = document.getElementById("inputAltura").value
     let nacimiento = new Date(document.getElementById('inputNac').value);
     let anioNacimiento = nacimiento.getFullYear();
-    
-    persona = new Persona(nombre, edad, dni, sexo, peso, altura, anioNacimiento)
+    if (!persona) {
+        persona = new Persona(nombre, edad, dni, sexo, peso, altura, anioNacimiento)
+    }else{
+        persona.nombre = nombre;
+        persona.edad = edad;
+        persona.dni = dni;
+        persona.sexo = sexo;
+        persona.peso = peso;
+        persona.altura = altura;
+        persona.anioNacimiento = anioNacimiento;
+    }
 
     contenedorCreacion.classList.add("d-none")
     formCreacion.reset();
@@ -43,7 +59,6 @@ function enviarForm(e) {
 }
 
 function mostrarGeneracion() {
-    const alertaGeneracion = document.getElementById('alertaGeneracion')
     if(alertaGeneracion.innerHTML==""){
     const contenedorAlertaGen = document.createElement('div')
     contenedorAlertaGen.classList.add("alert","alert-warning","alert-dismissible")
@@ -54,10 +69,6 @@ function mostrarGeneracion() {
     }
 }
 function mostrarMayorEdad() {
-    const alertaMayorEdad = document.getElementById('alertaMayorEdad')
-    console.log(alertaMayorEdad)
-    console.log(alertaMayorEdad.innerHTML)
-    console.log(alertaMayorEdad.innerHTML=="")
     if(alertaMayorEdad.innerHTML==""){
     const contenedorAlertaMayor = document.createElement('div')
     contenedorAlertaMayor.classList.add("alert","alert-warning","alert-dismissible")
@@ -66,7 +77,17 @@ function mostrarMayorEdad() {
     <button tipo="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`
     alertaMayorEdad.append(contenedorAlertaMayor)
     }
-
+}
+function removerAnterior(){
+    while(alertaGeneracion.firstChild){
+        alertaGeneracion.removeChild(alertaGeneracion.firstChild)    
+    }
+    while(alertaMayorEdad.firstChild){
+        alertaMayorEdad.removeChild(alertaMayorEdad.firstChild)    
+    }
+    while(contenedorDatos.firstChild){
+        contenedorDatos.removeChild(contenedorDatos.firstChild)    
+    }
 }
 //Clase Persona
 class Persona {
