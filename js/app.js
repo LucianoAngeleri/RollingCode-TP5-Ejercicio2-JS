@@ -47,14 +47,17 @@ function enviarForm(e) {
 
 function mostrarGeneracion() {
     const alertaGeneracion = document.getElementById('alertaGeneracion')
+    console.log(alertaGeneracion.innerHTML)
+    if(alertaGeneracion.innerHTML==""){
     const contenedorAlerta = document.createElement('div')
-    contenedorAlerta.innerHTML = [
-        `<div class="alert alert-success alert-dismissible" role="alert">`,
-        `   <div>${persona.mostrarGeneracion()}</div>`,
-        '   <button tipo="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-        '</div>'
-    ].join('')
+    contenedorAlerta.classList.add("alert","alert-success","alert-dismissible")
+    contenedorAlerta.setAttribute("role","alert")
+    contenedorAlerta.innerHTML = `<div>${persona.mostrarGeneracion()}</div>
+    <button tipo="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`
     alertaGeneracion.append(contenedorAlerta)
+    }
+    
+    console.log(alertaGeneracion.innerHTML)
 }
 function mostrarMayorEdad() {
 
@@ -148,6 +151,8 @@ class Persona {
             return `${this.nombre} pertenece a la "Baby Boom" cuyo rasgo es la "Ambición"`;
         } else if (this.anioNacimiento >= 1930 && this.anioNacimiento <= 1948) {
             return `${this.nombre} pertenece a la "Silent Generation" cuyo rasgo es la "Austeridad"`;
+        }else{
+            return `No se puede determinar la generación de ${this.nombre}`
         }
     }
     esMayorDeEdad() {
