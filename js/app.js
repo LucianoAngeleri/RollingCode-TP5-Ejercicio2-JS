@@ -1,14 +1,10 @@
 let btnCrear = document.getElementById("btnCrear")
-let btnBorrar = document.getElementById("btnBorrar")
 let btnGeneracion = document.getElementById("btnGeneracion")
 let btnMayor = document.getElementById("btnMayor")
 let contenedorCreacion = document.getElementById("contenedorCreacion")
 let formCreacion = document.querySelector("form")
 
-
-
 btnCrear.addEventListener("click", mostrarFormCreacion)
-btnCrear.addEventListener("click", borrarPersona)
 btnGeneracion.addEventListener("click", mostrarGeneracion)
 btnMayor.addEventListener("click", mostrarMayorEdad)
 formCreacion.addEventListener("submit", enviarForm)
@@ -18,13 +14,16 @@ let persona;
 function mostrarFormCreacion() {
     contenedorCreacion.classList.remove("d-none")
     btnCrear.classList.add("d-none")
+    btnMayor.classList.add("d-none")
+    btnGeneracion.classList.add("d-none")
 }
 function enviarForm(e) {
     e.preventDefault();
     btnGeneracion.classList.remove("d-none")
     btnMayor.classList.remove("d-none")
-    btnBorrar.classList.remove("d-none")
 
+    let contenedorDatos = document.getElementById("contenedorDatos")
+    
     let nombre = document.getElementById("inputNombre").value
     let edad = document.getElementById("inputEdad").value
     let dni = document.getElementById("inputDNI").value
@@ -33,9 +32,7 @@ function enviarForm(e) {
     let altura = document.getElementById("inputAltura").value
     let nacimiento = new Date(document.getElementById('inputNac').value);
     let anioNacimiento = nacimiento.getFullYear();
-
-    let contenedorDatos = document.getElementById("contenedorDatos")
-
+    
     persona = new Persona(nombre, edad, dni, sexo, peso, altura, anioNacimiento)
 
     contenedorCreacion.classList.add("d-none")
@@ -47,7 +44,6 @@ function enviarForm(e) {
 
 function mostrarGeneracion() {
     const alertaGeneracion = document.getElementById('alertaGeneracion')
-    console.log(alertaGeneracion.innerHTML)
     if(alertaGeneracion.innerHTML==""){
     const contenedorAlerta = document.createElement('div')
     contenedorAlerta.classList.add("alert","alert-success","alert-dismissible")
@@ -56,16 +52,10 @@ function mostrarGeneracion() {
     <button tipo="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`
     alertaGeneracion.append(contenedorAlerta)
     }
-    
-    console.log(alertaGeneracion.innerHTML)
 }
 function mostrarMayorEdad() {
 
 }
-function borrarPersona() {
-    delete Persona
-}
-
 //Clase Persona
 class Persona {
     #nombre;
